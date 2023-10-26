@@ -9,7 +9,7 @@ function Home() {
   let [subjects,setSubject]= useState([{name:"A"},{name:'B'},{name:'C'},{name:'D'}]);
   useEffect(()=>{
     // console.log('hello'+URL);
-    fetch(`http://localhost:1337/api/subjects`, {'Content-Type':'application/json'}).then((res)=>{
+    fetch('http://localhost:1337/api/subjects', {'Content-Type':'application/json'}).then((res)=>{
       return res.json()
     }).then((data)=>{
       console.log(data.data);
