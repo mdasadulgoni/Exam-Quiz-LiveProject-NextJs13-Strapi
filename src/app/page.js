@@ -2,14 +2,16 @@
 // 1. Import Area
 import { useEffect, useState } from "react";
 
-// let URL = process.env.STRAPI_URL
+
 // 2. Define Area
 function Home() {
   // 2.1 Hooks Area
   let [subjects,setSubject]= useState([{name:"A"},{name:'B'},{name:'C'},{name:'D'}]);
+  // useEffect(cbfn,[])
   useEffect(()=>{
+    // let URL = process.env.STRAPI_URL
     // console.log('hello'+URL);
-    fetch('http://localhost:1337/api/subjects', {'Content-Type':'application/json'}).then((res)=>{
+    fetch(`http://localhost:1337/api/subjects`, {'Content-Type':'application/json'}).then((res)=>{
       return res.json()
     }).then((data)=>{
       console.log(data.data);
@@ -39,7 +41,18 @@ function Home() {
                 <label htmlFor="exampleFormControlInput1" className="form-label fw-bolder">Subject</label>
                 <select className='form-control'>
                   {
-                    subjects.length > 1 && 
+                    subjects.length > 0 && 
+                    subjects.map((cv,ind,arr)=>{
+                      return <option key={ind}>{cv.name}</option>
+                    })
+                  }
+                </select>
+              </div>
+              <div className="mb-3">
+                <label htmlFor="exampleFormControlInput1" className="form-label fw-bolder text-success">Subject2</label>
+                <select className='form-control'>
+                  {
+                    subjects.length > 0 && 
                     subjects.map((cv,ind,arr)=>{
                       return <option key={ind}>{cv.name}</option>
                     })
