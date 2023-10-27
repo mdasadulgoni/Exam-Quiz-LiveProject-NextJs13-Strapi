@@ -3,7 +3,7 @@
 
 // 2. Define Area
 async function GET(){
-    let response = await fetch('http://localhost:3000/api/getsubjects')
+    let response = await fetch('http://localhost:3000/api/getsubject')
     // Every Function Retrun Somthing
         // object.method(actualArgument)
     let data = response.json()
