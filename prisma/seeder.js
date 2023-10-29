@@ -20,6 +20,18 @@ const subjects = [
     {
         // propoerty:value
         name:'Hindi'
+    },
+    {
+        // propoerty:value
+        name:'Bengali'
+    },
+    {
+        // propoerty:value
+        name:'Tamil'
+    },
+    {
+        // propoerty:value
+        name:'Arabic'
     }
 ]
 for (subject of subjects) {

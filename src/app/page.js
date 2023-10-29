@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 function Home() {
   // 2.1 Hooks Area
   let [subjects,setSubject]= useState([{name:"A"},{name:'B'},{name:'C'},{name:'D'}]);
+  let [subjects2,setSubject2]= useState([]);
   // useEffect(cbfn,[])
   useEffect(()=>{
     // let URL = process.env.STRAPI_URL
@@ -22,6 +23,18 @@ function Home() {
       
     }).finally(()=>{
 
+    })
+    //===============================
+    fetch('/api/getsubjects').then((res)=>{
+      return res.json(res)
+    }).then((data)=>{
+      console.log(data.data);
+      // console.log(data.data);
+      setSubject2(data.data)
+    }).catch(()=>{
+
+    }).finally(()=>{
+      
     })
   },[]);
 
@@ -53,7 +66,7 @@ function Home() {
                 <select className='form-control'>
                   {
                     subjects.length > 0 && 
-                    subjects.map((cv,ind,arr)=>{
+                    subjects2.map((cv,ind,arr)=>{
                       return <option key={ind}>{cv.name}</option>
                     })
                   }
